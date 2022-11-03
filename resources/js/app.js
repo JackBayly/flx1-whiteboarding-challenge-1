@@ -1,19 +1,43 @@
 // 1. GenBuzz Function
-        
+
 //    * Write a function that prints (to the console) numbers from a `lowerLimit` to an `upperLimit`.
 //    * For numbers divisible by 3, print “Gen”
 //    * For numbers divisible by 5, print “Buzz”
 //    * For numbers divisible by both 3 and 5, print “GenBuzz”
-//    * Check to make sure that inputs are numbers
+//    
+
+
+//* DONEEECheck to make sure that inputs are numbers
 //      * If they are not numbers, use template literals to print the input along with a message informing that the input is not a number.
-//    * Ensure that `lowerLimit` is smaller than `upperLimit`.
+//    * DONEEEEEnsure that `lowerLimit` is smaller than `upperLimit`.
 //      * If input for `lowerLimit` is larger than `upperLimit`, use template literals to print a statement informing the user that the lowerLimit is larger than the upperLimit.
 //    * <img src="resources/img/genbuzz-example.png"> 
 
 // //Write your code below this line:
+function GenBuzz(startNumber, endNumber) {
 
+    if (typeof startNumber == "number" && typeof endNumber == "number" && startNumber < endNumber) {
+        for (let i = startNumber; i <= endNumber; i++) {
+            if (i % 15 == 0) {
+                console.log("genBuzz")
+            } else if (i % 5 == 0) {
+                console.log("Buzz")
+            } else if (i % 3 == 0) {
+                console.log("Gen")
+            } else {
+                console.log(i);
+            }
+        }
+    } else if (startNumber > endNumber) {
+        console.log(`${startNumber} is greater than ${endNumber}. Please change this.`)
+    } else {
+        console.log(`${startNumber} or ${endNumber} is not a number.`)
+    }
 
+}
 
+GenBuzz(3, 30);
+GenBuzz(4, 2)
 
 // 2. Leap Year
 
@@ -24,8 +48,17 @@
 // By inserting an additional day or month into the year, the drift can be corrected. 
 // A year that is not a leap year is called a common year.
 
-// Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100, 
+
+//Ifs
+// Every year that is exactly divisible by four is a leap year,
+// except for years that are exactly divisible by 100, 
+
+
+
 // but these centurial years are leap years if they are exactly divisible by 400. 
+
+
+
 // For example, the years 1700, 1800, and 1900 are not leap years, but the year 2000 is.
 
 // Write a program that returns a message informing a user 
@@ -35,9 +68,24 @@
 
 //Write your code below this line:
 
+function isLeapYear(year) {
+
+    if (year % 400 == 0) {
+        console.log(`${year} is a leap year!`)
+    } else if (year % 100 == 0) {
+        console.log(`${year} is nota leap year :(`)
+    } else if (year % 4 == 0) {
+        console.log(`${year} is a leap year!`)
+    } else {
+        console.log(`${year} is nota leap year :(`)
+    }
 
 
+}
 
+isLeapYear(2000);
+isLeapYear(1000)
+isLeapYear(2022)
 
 // 3. Perfect Square
 
@@ -53,3 +101,18 @@
 // You may not use the built-in Math.sqrt method
 
 //Write your code below this line:
+
+function perfectSqr(number) {
+    
+    for (let i = 1; i * i <= number; i++) {
+        if (i * i == number) {
+            console.log(`${number} is a perfect square!`)
+        } else if (i * i !== number) {
+            console.log("The number's not perfect, but nobody is :)")
+        }
+
+    }
+}
+
+perfectSqr(9)
+perfectSqr(10)
